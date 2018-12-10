@@ -7,22 +7,23 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
-	// Strategy : 
-	/*
+  // Strategy : 
+  /*
      Check if n is negative return null,
      else check if n = 1 or n = 0 return 1
-	 Base Case = if n === 1  then return 1
-	 Recursive Case = n > 1 return n and factorial of n-1
+   Base Case = if n === 1  then return 1
+   Recursive Case = n > 1 return n and factor -l o
+ 1
 
-	*/
-	if(n < 0){
-	 return null;
-	}else if(n === 1 || n === 0){ // if n = 1 
-		return 1; // returns 1
-	}
-	
-	return n * factorial(n-1);
-	
+  */
+  if(n < 0){
+   return null;
+  }else if(n === 1 || n === 0){ // if n = 1 
+    return 1; // returns 1
+  }
+  
+  return n * factorial(n-1);
+  
 };
 
 // 2. Compute the sum of an array of integers.
@@ -33,9 +34,9 @@ var sum = function(array) {
   Recursive Case : array[0] + sum(array.slice(1))
   input: array;
   ouput : number (sum);
-  */	
+  */  
   if(array.length === 0){
-  	return 0;
+    return 0;
   }else if(array.length===1){
     return array[0];
   }
@@ -46,34 +47,34 @@ var sum = function(array) {
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
   // initialize sum at 0
-	var sum = 0;
-	 // loop through array 
-	 for(var i =0; i< array.length; i++){
-	   var curVal = array[i];
-	  // check if element is numer if true add to sum
-	  if(typeof(curVal) === 'number'){
-	    sum+= curVal;
-	  }else{
-	  // esle sum += arraySum(array)
-	     sum += arraySum(curVal);
-	  }
-	  //returning the sum
-	 }
+  var sum = 0;
+   // loop through array 
+   for(var i =0; i< array.length; i++){
+     var curVal = array[i];
+    // check if element is numer if true add to sum
+    if(typeof(curVal) === 'number'){
+      sum+= curVal;
+    }else{
+    // esle sum += arraySum(array)
+       sum += arraySum(curVal);
+    }
+    //returning the sum
+   }
   return sum;
 
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-	// input : number (takes in postive and negative numbers)
-	// output true/false
-	/*
-	Strategy: 
-	Check if n is less than 0 than use Math.abs to convert into a positive number.
-	if n = 0 return true
-	if n = 1 return false
-	else reduce n by 2 and callback the function.
-	*/
+  // input : number (takes in postive and negative numbers)
+  // output true/false
+  /*
+  Strategy: 
+  Check if n is less than 0 than use Math.abs to convert into a positive number.
+  if n = 0 return true
+  if n = 1 return false
+  else reduce n by 2 and callback the function.
+  */
   if(n < 0){
    n = Math.abs(n);
   }
@@ -83,7 +84,7 @@ var isEven = function(n) {
      if (n === 1){
         return false;
     } else{
-    	n = n - 2;
+      n = n - 2;
         return isEven(n);
     }
 };
@@ -92,26 +93,26 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-	// input : number (positive or negative or 0)
-	// op : sum of numbers below n
-	/*
-	Strategy: check if value is a negative or positive
-	- if negative then add +1 to the value (that helps neg number to decrease)
-		- check if n has reached the value of 0 || 1
-		- else return n + sumBelow(n)
+  // input : number (positive or negative or 0)
+  // op : sum of numbers below n
+  /*
+  Strategy: check if value is a negative or positive
+  - if negative then add +1 to the value (that helps neg number to decrease)
+    - check if n has reached the value of 0 || 1
+    - else return n + sumBelow(n)
 
-	- else if value is positive
-		- subtract 1 from value
-		- check if n has reached the value of 0 || -1 
-		-else return n + sumBelow(n)
+  - else if value is positive
+    - subtract 1 from value
+    - check if n has reached the value of 0 || -1 
+    -else return n + sumBelow(n)
 
-	Base Case : if n = 1 return 1
-	Assign n = n -1
-	return n + sumBelow(n)
-	
-	//
-	*/
-	// check if its a neg number
+  Base Case : if n = 1 return 1
+  Assign n = n -1
+  return n + sumBelow(n)
+  
+  //
+  */
+  // check if its a neg number
    if(n < 0){
      n = n+1; //-3
     if(n === 0 || n === 1){
@@ -126,35 +127,35 @@ var sumBelow = function(n) {
     return n + sumBelow(n)
   }
 
-	
+  
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-	/* 
-	inputs : two arguments;
-	ouput : an array;
-	Base Case : if x === y return [];
-	Recursive case : 
-	if x < y,
-	- check if x = y -1 return array
-	- x = x + 1 and push x into array
-	- return array and range(x, y)
-	else if x > y
-	 - check if x = y + 1 return array
-	 - x = x -1 and push x into array
-	 - return aray and range(x, y) 
-	*/
-	
+  /* 
+  inputs : two arguments;
+  ouput : an array;
+  Base Case : if x === y return [];
+  Recursive case : 
+  if x < y,
+  - check if x = y -1 return array
+  - x = x + 1 and push x into array
+  - return array and range(x, y)
+  else if x > y
+   - check if x = y + 1 return array
+   - x = x -1 and push x into array
+   - return aray and range(x, y) 
+  */
+  
 
   var array = [];
   if(x===y){
-	return array;
+  return array;
   } 
   if ( x < y){ //range(2,9)
 
-  	if(x===(y-1)){
+    if(x===(y-1)){
       return array;
     } 
     x = x+1;
@@ -163,7 +164,7 @@ var range = function(x, y) {
     return array.concat(range(x,y));
   }else { //range(9,2)
 
-  	if(x===(y+1)){
+    if(x===(y+1)){
       return array;
     } 
     x = x-1;
@@ -180,7 +181,35 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-	
+  /*
+   ip: base and exp (numbers)
+   op: result(number)
+   Strategy:
+   Declare a result variable as 1.
+   if exp = 0 return 1
+   Base case: if exp = 1 return result = base.
+   Recursive case:
+   if exp < 0
+   - Divide the result by base and perform / (exponent(base,exp+1))
+   - Increase the value of exp in recursion callback.
+   if exp > 1
+  - Multiply the result by base and perform * (exponent(base, exp - 1))
+  result = result * base * (exponent(base, exp - 1))
+  - Decrease the value of exp in recursion callback. * is not a valid command. In Slack, all messages that start with the "/" character are interpreted as commands.
+
+  If you are trying to send a message and not run a command, try preceding the "/" with an empty space.
+  */
+  var result = 1;
+  if(exp === 0){
+      return 1;
+  }
+  if(exp === 1){
+  return result *= base;
+  }
+  if(exp < 1){
+        return result /= base / (exponent(base,exp+1));
+  }
+  return result *= base * (exponent(base,exp-1)); 
 };
 
 // 8. Determine if a number is a power of two.
@@ -188,14 +217,61 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  /*
+  ip: number
+  op: true or false
+  Strategy:
+  Base Case if n = 1 return true
+  if n < 1 return false
+  return powerOfTwo(n/2);
+  */
+  if(n === 1) {
+       return true;
+   }
+   if(n < 1){
+       return false;
+   }
+   return powerOfTwo(n/2);
 };
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  /*
+  ip: string
+  op: string
+  Strategy
+  - Base case: If the length of string is equal to 1 than return that string
+  - Recursion Case: recursion + string[0]
+
+  
+  */
+  if(string.length === 1){
+      return string;
+  }
+  return reverse(string.slice(1)) + string[0];
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  /*
+  ip: string
+  op: boolean
+  Strategy:
+  - Base Case : if the length of string is 1 or 0, return true
+  - Recursive case - Compare the first and last element of string, if they are equal
+                     then call palindrome(string.slice(1, -1))
+                     Compare till you reach the length of string to 1 or 0.
+
+  */
+  string = string.split(' ').join('').toLowerCase();
+  var length = string.length;
+  if(length === 0 || length === 1){
+    return true;
+  }
+  if(string[0] === string[string.length-1]){
+    return palindrome(string.slice(1, -1));
+  }
+   return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
