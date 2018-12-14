@@ -8,7 +8,6 @@
 // factorial(5); // 120
 var factorial = function(n) {
 };
-
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
@@ -59,20 +58,68 @@ var palindrome = function(string) {
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
-// modulo(5,2) // 1
-// modulo(17,5) // 2
-// modulo(22,6) // 4
-var modulo = function(x, y) {
-};
+// modulo(5,2) // 1   5 - 2 = 3 - 2 = 1
+// modulo(17,5) // 2  17 - 5 = 12 - 5 = 7 - 5 = 2 - 5 
+// modulo(22,6) // 4   
+var modulo = function(x, y) { 
+  if(y === 0) {
+    return NaN;
+   }
+  if(x < 0 && y < 0) {
+    if(x > y) {
+      return x;
+    }
+  } else if (x < 0 && y > 0) {
+    if(-x < y){
+      return x;
+    }
+    return modulo(x+y, y)
+    } else {
+     if(x < y) {
+      return x;
+       }
+    }
+  return modulo(x-y, y); 
+}; 
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
-var multiply = function(x, y) {
+var multiply = function(x, y) { 
+
+  if(y === 0){
+    return 0;
+  }
+  if(y<0){
+    return -x + multiply(x, y+1)
+  }
+  return x + multiply(x, y-1);
+  
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
+  if(x === 0 && y === 0){
+    return NaN;
+  }
+  if(x === 0){
+    return 0;
+  }
+  if(x < y){
+    return 0;
+  }
+  if(x === y){
+    return 1;
+  }
+  if(x + y < 0){  // if both x and y are negative, always negative
+    return 0;
+  }
+  if(x < 0 && y > 0 && -x < y){
+    return 0;
+  }
+  if(x > 0 && y > 0){
+   return 1 + divide(x-y, y);
+  }
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
